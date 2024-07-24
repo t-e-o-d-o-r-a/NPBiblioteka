@@ -26,6 +26,13 @@
       <scope>test</scope>
     </dependency>
     
+    <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+	<dependency>
+	    <groupId>com.mysql</groupId>
+	    <artifactId>mysql-connector-j</artifactId>
+	    <version>8.2.0</version>
+	</dependency>
+    
     <dependency>
 		<groupId>rs.ac.bg.fon.ai</groupId>
   		<artifactId>biblioteka-zajednicki</artifactId>
