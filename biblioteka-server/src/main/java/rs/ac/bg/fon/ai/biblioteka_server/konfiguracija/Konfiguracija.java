@@ -16,7 +16,7 @@ public class Konfiguracija {
         try {
         	String projectRootPath = Paths.get("").toAbsolutePath().toString();
             String configFilePath = Paths.get(projectRootPath, "src", "main", "resources", "config", "dbconfig.properties").toString();
-
+            konfiguracija = new Properties();
             konfiguracija.load(new FileInputStream(configFilePath));
         } catch (Exception ex) {
             ex.printStackTrace();
