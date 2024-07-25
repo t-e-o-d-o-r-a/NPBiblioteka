@@ -7,6 +7,7 @@ import java.util.Objects;
 
 /**
  * Predstavlja bibliotekara koji se prijavljuje na sistem i koristi softver za evidenciju rada biblioteke.
+ * Implementira interfejs ApstraktniDomenskiObjekat.
  * 
  * Bibliotekar ima ID, ime, prezime, kao i korisnicko ime i lozinku pomocu kojih se prijavljuje na sistem.
  * 

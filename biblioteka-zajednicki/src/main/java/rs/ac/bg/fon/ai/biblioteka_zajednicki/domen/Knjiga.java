@@ -5,19 +5,71 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Predstavlja knjigu koja je evidentirana u biblioteci.
+ * Implementira interfejs ApstraktniDomenskiObjekat.
+ * 
+ * Knjiga ima svoj ID, naslov, broj primeraka, godinu izdanja, autora, izdavaca i format.
+ * 
+ * @author Teodora
+ *
+ */
 public class Knjiga implements ApstraktniDomenskiObjekat {
     
+	/**
+	 * ID knjige kao int.
+	 */
     private int knjigaID;
+    
+    /**
+     * Naslov knjige kao String.
+     */
     private String naslov;
+    
+    /**
+     * Broj primeraka knjige koji su raspolozivi kao int.
+     */
     private int brojPrimeraka;
+    
+    /**
+     * Godina izdanja knjige kao int.
+     */
     private int godinaIzdanja;
+    
+    /**
+     * Autor knjige kao objekat klase Autor.
+     */
     private Autor autor;
+    
+    /**
+     * Izdavac knjige kao objekat klase Izdavac.
+     */
     private Izdavac izdavac;
+    
+    /**
+     * Format knjige kao enum vrednost Format.
+     */
     private Format format;
 
+    /**
+     * Pravi novi objekat klase Knjiga.
+     * 
+     * Naslov, knjigaID, brojPrimeraka, godinaIzdanja, autor, izdavac i format ostaju neinicijalizovani.
+     */
     public Knjiga() {
     }
 
+    /**
+     * Pravi novi objekat klase Knjiga i postavlja knjigaID, naslov, brojPrimeraka, godinuIzdanja, autora, izdavaca i format na unete vrednosti.
+     * 
+     * @param knjigaID ID knjige kao int
+     * @param naslov naslov knjige kao String
+     * @param brojPrimeraka raspoloziv broj primeraka knjige kao int 
+     * @param godinaIzdanja godina izdanja knjige kao int
+     * @param autor autor knjige kao objekat klase Autor
+     * @param izdavac izdavac knjige kao objekat klase Izdavac
+     * @param format format knjige kao enum vrednost Format
+     */
     public Knjiga(int knjigaID, String naslov, int brojPrimeraka, int godinaIzdanja, Autor autor, Izdavac izdavac, Format format) {
         this.knjigaID = knjigaID;
         this.naslov = naslov;
@@ -28,58 +80,128 @@ public class Knjiga implements ApstraktniDomenskiObjekat {
         this.format = format;
     }
 
+    /**
+     * Vraca format knjige.
+     *  
+     * @return format knjige kao enum vrednost Format
+     */
     public Format getFormat() {
         return format;
     }
 
+    /**
+     * Postavlja format knjige na unetu vrednost.
+     * 
+     * @param format format knjige kao enum vrednost Format
+     */
     public void setFormat(Format format) {
         this.format = format;
     }
 
+    /**
+     * Vraca ID knjige.
+     * 
+     * @return ID knjige kao int
+     */
     public int getKnjigaID() {
         return knjigaID;
     }
 
+    /**
+     * Postavlja ID knjige na unetu vrednost.
+     * 
+     * @param knjigaID ID knjige kao int
+     */
     public void setKnjigaID(int knjigaID) {
         this.knjigaID = knjigaID;
     }
 
+    /**
+     * Vraca naslov knjige.
+     * 
+     * @return naslov knjige kao String.
+     */
     public String getNaslov() {
         return naslov;
     }
 
+    /**
+     * Postavlja naslov knjige na unetu vrednost.
+     * 
+     * @param naslov naslov knjige kao String
+     */
     public void setNaslov(String naslov) {
         this.naslov = naslov;
     }
 
+    /**
+     * Vraca raspoloziv broj primeraka knjige.
+     * 
+     * @return raspoloziv broj primeraka knjige kao int
+     */
     public int getBrojPrimeraka() {
         return brojPrimeraka;
     }
-
+    
+	/**
+	 * Postavlja raspoloziv broj primeraka knjige na unetu vrednost.
+	 * 
+	 * @param brojPrimeraka raspoloziv broj primeraka knjige kao int
+	 */
     public void setBrojPrimeraka(int brojPrimeraka) {
         this.brojPrimeraka = brojPrimeraka;
     }
 
+    /**
+     * Vraca godinu izdanja knjige.
+     * 
+     * @return godina izdanja knjige kao int
+     */
     public int getGodinaIzdanja() {
         return godinaIzdanja;
     }
 
+    /**
+     * Postavlja godinu izdanja knjige na unetu vrednost.
+     * 
+     * @param godinaIzdanja godina izdanja knjige kao int
+     */
     public void setGodinaIzdanja(int godinaIzdanja) {
         this.godinaIzdanja = godinaIzdanja;
     }
 
+    /**
+     * Vraca autora knjige.
+     * 
+     * @return autor knjige kao objekat klase Autor
+     */
     public Autor getAutor() {
         return autor;
     }
 
+    /**
+     * Postavlja autora knjige na unetu vrednost.
+     * 
+     * @param autor autor knjige kao objekat klase Autor
+     */
     public void setAutor(Autor autor) {
         this.autor = autor;
     }
 
+    /**
+     * Vraca izdavaca knjige.
+     * 
+     * @return izdavac knjige kao objekat klase Izdavac
+     */
     public Izdavac getIzdavac() {
         return izdavac;
     }
 
+    /**
+     * Postavlja izdavaca knjige na unetu vrednost.
+     * 
+     * @param izdavac izdavac knjige kao objekat klase Izdavac
+     */
     public void setIzdavac(Izdavac izdavac) {
         this.izdavac = izdavac;
     }
@@ -90,6 +212,17 @@ public class Knjiga implements ApstraktniDomenskiObjekat {
         return hash;
     }
 
+    /**
+     * Poredi dve knjige prema godini izdanja, naslovu, autoru, izdavacu i formatu.
+     * 
+     * @param obj druga knjiga sa kojim se poredi
+     * 
+     * @return 
+     * <ul>
+	 * 	<li><b>true</b> - ako su oba objekta inicijalizovana, klase su Knjiga, imaju istu godinu izdanja, naslov, autora, izdavaca i format</li>
+	 * 	<li><b>false</b> - ako nisu klase Knjiga, ako je uneta knjiga null ili ako nije ista godina izdanja ili naslov ili autor ili izdavac ili format</li>
+	 * </ul>
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -116,10 +249,6 @@ public class Knjiga implements ApstraktniDomenskiObjekat {
         }
         return this.format == other.format;
     }
-
-    
-
-    
 
     @Override
     public String toString() {

@@ -7,6 +7,7 @@ import java.util.Objects;
 
 /**
  * Predstavlja autora knjige.
+ * Implementira interfejs ApstraktniDomenskiObjekat.
  * 
  * Autor ima ime, prezime i svoj ID.
  * 

@@ -5,31 +5,78 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Predstavlja izdavaca knjige.
+ * Implementira interfejs ApstraktniDomenskiObjekat.
+ * 
+ * Izdavac ima svoj ID i naziv.
+ * 
+ * @author Teodora
+ *
+ */
 public class Izdavac implements ApstraktniDomenskiObjekat {
     
+	/**
+	 * ID izdavaca kao int.
+	 */
     private int izdavacID;
+    
+    /**
+     * Naziv izdavaca kao String.
+     */
     private String naziv;
 
+    /**
+     * Pravi novi objekat klase Izdavac.
+     * 
+     * Naziv i izdavacID ostaju neinicijalizovani.
+     */
     public Izdavac() {
     }
 
+    /**
+     * Pravi novi objekat klase Izdavac i postavlja izdavacID i naziv na unete vrednosti.
+     * 
+     * @param izdavacID ID izdavaca kao int
+     * @param naziv naziv izdavaca kao String
+     */
     public Izdavac(int izdavacID, String naziv) {
         this.izdavacID = izdavacID;
         this.naziv = naziv;
     }
 
+    /**
+     * Vraca naziv izdavaca.
+     *  
+     * @return naziv izdavaca kao String
+     */
     public String getNaziv() {
         return naziv;
     }
 
+    /**
+     * Postavlja naziv izdavaca na unetu vrednost.
+     * 
+     * @param naziv naziv izdavaca kao String
+     */
     public void setNaziv(String naziv) {
         this.naziv = naziv;
     }
 
+    /**
+     * Vraca ID izdavaca.
+     *  
+     * @return ID izdavaca kao int
+     */
     public int getIzdavacID() {
         return izdavacID;
     }
 
+    /**
+     * Postavlja ID izdavaca na unetu vrednost.
+     * 
+     * @param izdavacID ID izdavaca kao int
+     */
     public void setIzdavacID(int izdavacID) {
         this.izdavacID = izdavacID;
     }
@@ -40,6 +87,17 @@ public class Izdavac implements ApstraktniDomenskiObjekat {
         return hash;
     }
 
+    /**
+     * Poredi dva izdavaca prema ID-ju i nazivu.
+     * 
+     * @param obj drugi izdavac sa kojim se poredi
+     * 
+     * @return 
+     * <ul>
+	 * 	<li><b>true</b> - ako su oba objekta inicijalizovana, klase su Izdavac, imaju isti naziv i izdavacID</li>
+	 * 	<li><b>false</b> - ako nisu klase Izdavac, ako je uneti izdavac null ili ako nije isti naziv ili izdavacID</li>
+	 * </ul>
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -58,6 +116,11 @@ public class Izdavac implements ApstraktniDomenskiObjekat {
         return Objects.equals(this.naziv, other.naziv);
     }
 
+    /**
+     * Vraca naziv izdavaca.
+     * 
+     * @return String koji predstavlja naziv izdavaca
+     */
     @Override
     public String toString() {
         return naziv;
