@@ -7,18 +7,67 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Predstavlja pozajmicu u okviru koje clan u nekom trenutku pozajmljuje jednu ili vise knjiga iz biblioteke. Pozajmicu belezi bibliotekar.
+ * Implementira interfejs ApstraktniDomenskiObjekat.
+ * 
+ * Pozajmica ima svoj ID, datum kada je kreirana, clana koji pozajmljuje, bibliotekara koji je belezi, listu stavki gde svaka stavka odgovara jednoj
+ * pozajmljenoj knjizi i napomenu.
+ * 
+ * @author Teodora
+ *
+ */
 public class Pozajmica implements ApstraktniDomenskiObjekat {
     
+	/**
+	 * ID pozajmice kao int.
+	 */
     private int pozajmicaID;
+    
+    /**
+     * Datum kada je pozajmica kreirana kao objekat klase Date.
+     */
     private Date datum;
+    
+    /**
+     * Clan koji pozajmljuje knjige kao objekat klase Clan.
+     */
     private Clan clan;
+    
+    /**
+     * Bibliotekar koji evidentira pozajmicu kao objekat klase Bibliotekar.
+     */
     private Bibliotekar bibliotekar;
+    
+    /**
+     * Lista stavki pozajmice kod koje svaka stavka odgovara po jednoj pozajmljenoj knjizi.
+     * Lista moze biti prazna ili null u slucajevima da nema stavki pozajmice.
+     */
     private List<StavkaPozajmice> stavke;
+    
+    /**
+     * Napomena vezana za pozajmicu kao String.
+     */
     private String napomena;
 
+    /**
+     * Pravi novi objekat klase Pozajmica.
+     * 
+     * PozajmicaID, datum, clan, bibliotekar, stavke i napomena ostaju neinicijalizovani.
+     */
     public Pozajmica() {
     }
 
+    /**
+     * Pravi novi objekat klase Pozajmica i postavlja datum, clana, bibliotekara, stavke, napomenu i pozajmicaID na unete vrednosti.
+     * 
+     * @param pozajmicaID ID pozajmice kao int
+     * @param datum datum kreiranja pozajmice kao objekat klase Date
+     * @param clan clan koji pozajmljuje knjige kao objekat klase Clan
+     * @param bibliotekar bibliotekar koji evidentira pozajmicu kao objekat klase Bibliotekar
+     * @param stavke lista stavki pozajmice
+     * @param napomena napomena koja ide uz pozajmicu kao String
+     */
     public Pozajmica(int pozajmicaID, Date datum, Clan clan, Bibliotekar bibliotekar, List<StavkaPozajmice> stavke, String napomena) {
         this.pozajmicaID = pozajmicaID;
         this.datum = datum;
@@ -28,50 +77,110 @@ public class Pozajmica implements ApstraktniDomenskiObjekat {
         this.napomena = napomena;
     }
 
+    /**
+     * Vraca listu stavki pozajmice.
+     * 
+     * @return lista sa stavkama pozajmice ili null ukoliko nema stavki
+     */
     public List<StavkaPozajmice> getStavke() {
         return stavke;
     }
 
+    /**
+     * Postavlja listu stavki na unetu vrednost.
+     * 
+     * @param stavke lista sa stavkama pozajmice ili null ukoliko nema stavki
+     */
     public void setStavke(List<StavkaPozajmice> stavke) {
         this.stavke = stavke;
     }
 
+    /**
+     * Vraca ID pozajmice.
+     * 
+     * @return ID pozajmice kao int
+     */
     public int getPozajmicaID() {
         return pozajmicaID;
     }
 
+    /**
+     * Postavlja ID pozajmice na unetu vrednost.
+     * 
+     * @param pozajmicaID ID pozajmice kao int
+     */
     public void setPozajmicaID(int pozajmicaID) {
         this.pozajmicaID = pozajmicaID;
     }
 
+    /**
+     * Vraca datum kreiranja pozajmice.
+     * 
+     * @return datum kreiranja pozajmice kao objekat klase Date
+     */
     public Date getDatum() {
         return datum;
     }
 
+    /**
+     * Postavlja datum kreiranja pozajmice na unetu vrednost.
+     * 
+     * @param datum datum kreiranja pozajmice kao objekat klase Date
+     */
     public void setDatum(Date datum) {
         this.datum = datum;
     }
 
+    /**
+     * Vraca clana koji je pozajmio knjige.
+     * 
+     * @return clan kao objekat klase Clan
+     */
     public Clan getClan() {
         return clan;
     }
 
+    /**
+     * Postavlja clana koji pozajmljuje knjige na unetu vrednost.
+     * 
+     * @param clan clan kao objekat klase Clan
+     */
     public void setClan(Clan clan) {
         this.clan = clan;
     }
 
+    /**
+     * Vraca napomenu pozajmice.
+     * 
+     * @return napomena kao String
+     */
     public String getNapomena() {
         return napomena;
     }
 
+    /**
+     * Postavlja napomenu pozajmice na unetu vrednost.
+     * 
+     * @param napomena napomena kao String
+     */
     public void setNapomena(String napomena) {
         this.napomena = napomena;
     }
 
+    /**
+     * Vraca bibliotekara koji je evidentirao pozajmicu.
+     * 
+     * @return bibliotekar kao objekat klase Bibliotekar
+     */
     public Bibliotekar getBibliotekar() {
         return bibliotekar;
     }
 
+    /**
+     * Postavlja bibliotekara koji evidentira pozajmicu na unetu vrednost
+     * 
+     * @param bibliotekar bibliotekar kao objekat klase Bibliotekar
+     */
     public void setBibliotekar(Bibliotekar bibliotekar) {
         this.bibliotekar = bibliotekar;
     }
@@ -82,6 +191,17 @@ public class Pozajmica implements ApstraktniDomenskiObjekat {
         return hash;
     }
 
+    /**
+     * Poredi dve pozajmice prema ID-ju, clanu i bibliotekaru.
+     * 
+     * @param obj druga pozajmica sa kojom se poredi
+     * 
+     * @return 
+     * <ul>
+	 * 	<li><b>true</b> - ako su oba objekta inicijalizovana, klase su Pozajmica, imaju istog clana, bibliotekara i pozajmicaID</li>
+	 * 	<li><b>false</b> - ako nisu klase Pozajmica, ako je uneta pozajmica null ili ako nije isti clan ili bibliotekar ili pozajmicaID</li>
+	 * </ul>
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
