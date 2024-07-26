@@ -4,8 +4,19 @@ import rs.ac.bg.fon.ai.biblioteka_zajednicki.domen.Bibliotekar;
 import java.util.List;
 import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
 
+/**
+ * Sistemska operacija koja prijavljuje bibliotekara na sistem.
+ * Proverava da li dati bibliotekar postoji registrovan u bazi podataka.
+ * 
+ * @author Teodora
+ *
+ */
 public class LoginSO extends ApstraktnaGenerickaOperacija{
     
+	/**
+	 * Bibliotekar koji se prijavio na sistem.
+	 * Ukoliko trazeni bibliotekar ne postoji, bice jednak null.
+	 */
     private Bibliotekar bibliotekar;
 
     @Override
@@ -30,6 +41,11 @@ public class LoginSO extends ApstraktnaGenerickaOperacija{
         bibliotekar = null;
     }
 
+    /**
+     * Vraca prijavljenog bibliotekara ukoliko je prijava uspesna, a ukoliko nije, vraca null.
+     * 
+     * @return prijavljeni bibliotekar kao instanca klase Bibliotekar ili null ako dati bibliotekar ne postoji u bazi
+     */
     public Bibliotekar getBibliotekar() {
         return bibliotekar;
     }

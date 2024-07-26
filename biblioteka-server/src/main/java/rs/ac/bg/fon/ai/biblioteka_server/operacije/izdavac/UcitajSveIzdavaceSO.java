@@ -4,8 +4,18 @@ import rs.ac.bg.fon.ai.biblioteka_zajednicki.domen.Izdavac;
 import java.util.List;
 import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
 
+/**
+ * Sistemska operacija koja vraca sve izdavace koji postoje u bazi podataka.
+ * 
+ * @author Teodora
+ *
+ */
 public class UcitajSveIzdavaceSO extends ApstraktnaGenerickaOperacija {
     
+	/**
+	 * Lista elemenata klase Izdavac. Bice popunjena svim izdavacima koji se ucitaju iz baze.
+	 * Ukoliko nema izdavaca, lista ostaje prazna.
+	 */
     List<Izdavac> lista;
 
     @Override
@@ -20,6 +30,11 @@ public class UcitajSveIzdavaceSO extends ApstraktnaGenerickaOperacija {
         lista = broker.vratiSve((Izdavac) objekat, kljuc);
     }
 
+    /**
+     * Vraca listu izdavaca koji su ucitani iz baze.
+     * 
+     * @return lista elemenata klase Izdavac
+     */
     public List<Izdavac> getLista() {
         return lista;
     }
