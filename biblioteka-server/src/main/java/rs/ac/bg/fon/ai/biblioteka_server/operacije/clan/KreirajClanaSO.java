@@ -3,6 +3,12 @@ package rs.ac.bg.fon.ai.biblioteka_server.operacije.clan;
 import rs.ac.bg.fon.ai.biblioteka_zajednicki.domen.Clan;
 import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
 
+/**
+ * Sistemska operacija koja kreira novog clana u bazi.
+ * 
+ * @author Teodora
+ *
+ */
 public class KreirajClanaSO extends ApstraktnaGenerickaOperacija {
 
     @Override

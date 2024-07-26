@@ -4,10 +4,25 @@ import rs.ac.bg.fon.ai.biblioteka_zajednicki.domen.Clan;
 import java.util.List;
 import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
 
+/**
+ * Sistemska operacija koja vraca sve clanove koji postoje u bazi podataka.
+ * 
+ * @author Teodora
+ *
+ */
 public class UcitajSveClanoveSO extends ApstraktnaGenerickaOperacija {
     
+	/**
+	 * Lista elemenata klase Clan. Bice popunjena svim clanovima koji se ucitaju iz baze.
+	 * Ukoliko nema clanova, lista ostaje prazna.
+	 */
     List<Clan> lista;
 
+    /**
+     * Vraca listu clanova koji su ucitani iz baze ili praznu listu ako nema clanova.
+     * 
+     * @return lista elemenata klase Clan ili prazna lista
+     */
     public List<Clan> getLista() {
         return lista;
     }

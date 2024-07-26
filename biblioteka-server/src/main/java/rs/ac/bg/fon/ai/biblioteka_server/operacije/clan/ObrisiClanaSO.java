@@ -3,6 +3,12 @@ package rs.ac.bg.fon.ai.biblioteka_server.operacije.clan;
 import rs.ac.bg.fon.ai.biblioteka_zajednicki.domen.Clan;
 import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
 
+/**
+ * Sistemska operacija koja brise odredjenog clana iz baze.
+ * 
+ * @author Teodora
+ *
+ */
 public class ObrisiClanaSO extends ApstraktnaGenerickaOperacija{
 
     @Override
