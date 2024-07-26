@@ -6,6 +6,13 @@ import rs.ac.bg.fon.ai.biblioteka_zajednicki.domen.StavkaPozajmice;
 import java.util.List;
 import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
 
+/**
+ * Sistemska operacija koja vrsi izmenu odredjene pozajmice i njenih stavki u bazi.
+ * Za svaku vracenu knjigu se povecava broj raspolozivih primeraka u bazi.
+ * 
+ * @author Teodora
+ *
+ */
 public class IzmeniPozajmicuSO extends ApstraktnaGenerickaOperacija {
 
     @Override
