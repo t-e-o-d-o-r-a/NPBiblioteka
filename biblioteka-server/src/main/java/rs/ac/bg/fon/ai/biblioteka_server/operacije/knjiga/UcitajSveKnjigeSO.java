@@ -4,8 +4,18 @@ import rs.ac.bg.fon.ai.biblioteka_zajednicki.domen.Knjiga;
 import java.util.List;
 import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
 
+/**
+ * Sistemska operacija koja vraca sve knjige koji postoje u bazi podataka.
+ * 
+ * @author Teodora
+ *
+ */
 public class UcitajSveKnjigeSO extends ApstraktnaGenerickaOperacija {
 
+	/**
+	 * Lista elemenata klase Knjiga. Bice popunjena svim knjigama koje se ucitaju iz baze.
+	 * Ukoliko nema knjiga, lista ostaje prazna.
+	 */
     List<Knjiga> lista;
     
     @Override
@@ -20,6 +30,11 @@ public class UcitajSveKnjigeSO extends ApstraktnaGenerickaOperacija {
         lista = broker.vratiSve((Knjiga) objekat, kljuc);
     }
 
+    /**
+     * Vraca listu knjiga koje su ucitane iz baze ili praznu listu ako nema knjiga.
+     * 
+     * @return lista elemenata klase Knjiga ili prazna lista
+     */
     public List<Knjiga> getLista() {
         return lista;
     }

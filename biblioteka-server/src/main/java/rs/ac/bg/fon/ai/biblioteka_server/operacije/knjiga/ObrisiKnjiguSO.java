@@ -3,6 +3,12 @@ package rs.ac.bg.fon.ai.biblioteka_server.operacije.knjiga;
 import rs.ac.bg.fon.ai.biblioteka_zajednicki.domen.Knjiga;
 import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
 
+/**
+ * Sistemska operacija koja brise odredjenu knjigu iz baze.
+ * 
+ * @author Teodora
+ *
+ */
 public class ObrisiKnjiguSO extends ApstraktnaGenerickaOperacija {
 
     @Override
