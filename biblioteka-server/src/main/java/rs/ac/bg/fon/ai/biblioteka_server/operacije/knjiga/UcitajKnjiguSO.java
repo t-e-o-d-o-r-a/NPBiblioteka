@@ -17,6 +17,12 @@ public class UcitajKnjiguSO extends ApstraktnaGenerickaOperacija {
 	 */
     private Knjiga knjiga;
     
+    /**
+     * Metoda koja proverava da li je prosledjeni objekat instanca klase Knjiga.
+     * 
+     * @param objekat objekat koji se validira
+     * @throws java.lang.Exception ukoliko prosledjeni objekat nije instanca klase Knjiga  
+     */
     @Override
     protected void preduslovi(Object objekat) throws Exception {
         if (objekat == null || !(objekat instanceof Knjiga)) {
@@ -24,6 +30,13 @@ public class UcitajKnjiguSO extends ApstraktnaGenerickaOperacija {
         }
     }
 
+    /**
+     * Metoda koja ucitava podatke odredjene knjige iz baze podataka.
+     * 
+     * @param objekat objekat koji se koristi prilikom izvrsenja operacije
+     * @param kljuc dodatni uslov koji se koristi za izvrsavanje operacije
+     * @throws java.lang.Exception ukoliko dodje do greske prilikom izvrsenja operacije
+     */
     @Override
     protected void izvrsiOperaciju(Object objekat, String kljuc) throws Exception {
         Knjiga k = (Knjiga) objekat;

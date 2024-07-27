@@ -18,6 +18,12 @@ public class UcitajSveAutoreSO extends ApstraktnaGenerickaOperacija {
 	 */
     List<Autor> lista;
 
+    /**
+     * Metoda koja proverava da li je prosledjeni objekat instanca klase Autor.
+     * 
+     * @param objekat objekat koji se validira
+     * @throws java.lang.Exception ukoliko prosledjeni objekat nije instanca klase Autor  
+     */
     @Override
     protected void preduslovi(Object objekat) throws Exception {
         if (objekat == null || !(objekat instanceof Autor)) {
@@ -25,6 +31,13 @@ public class UcitajSveAutoreSO extends ApstraktnaGenerickaOperacija {
         }
     }
 
+    /**
+     * Metoda koja ucitava sve autore iz baze podataka.
+     * 
+     * @param objekat objekat koji se koristi prilikom izvrsenja operacije
+     * @param kljuc dodatni uslov koji se koristi za izvrsavanje operacije
+     * @throws java.lang.Exception ukoliko dodje do greske prilikom izvrsenja operacije
+     */
     @Override
     protected void izvrsiOperaciju(Object objekat, String kljuc) throws Exception {
         lista = broker.vratiSve((Autor) objekat, kljuc);

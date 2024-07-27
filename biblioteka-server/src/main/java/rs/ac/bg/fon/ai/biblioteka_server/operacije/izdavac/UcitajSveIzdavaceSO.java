@@ -18,6 +18,12 @@ public class UcitajSveIzdavaceSO extends ApstraktnaGenerickaOperacija {
 	 */
     List<Izdavac> lista;
 
+    /**
+     * Metoda koja proverava da li je prosledjeni objekat instanca klase Izdavac.
+     * 
+     * @param objekat objekat koji se validira
+     * @throws java.lang.Exception ukoliko prosledjeni objekat nije instanca klase Izdavac  
+     */
     @Override
     protected void preduslovi(Object objekat) throws Exception {
         if (objekat == null || !(objekat instanceof Izdavac)) {
@@ -25,6 +31,13 @@ public class UcitajSveIzdavaceSO extends ApstraktnaGenerickaOperacija {
         }
     }
 
+    /**
+     * Metoda koja ucitava sve izdavace iz baze podataka.
+     * 
+     * @param objekat objekat koji se koristi prilikom izvrsenja operacije
+     * @param kljuc dodatni uslov koji se koristi za izvrsavanje operacije
+     * @throws java.lang.Exception ukoliko dodje do greske prilikom izvrsenja operacije
+     */
     @Override
     protected void izvrsiOperaciju(Object objekat, String kljuc) throws Exception {
         lista = broker.vratiSve((Izdavac) objekat, kljuc);
