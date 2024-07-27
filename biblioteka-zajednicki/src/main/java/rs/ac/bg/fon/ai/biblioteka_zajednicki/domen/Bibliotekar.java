@@ -7,14 +7,14 @@ import java.util.Objects;
 
 /**
  * Predstavlja bibliotekara koji se prijavljuje na sistem i koristi softver za evidenciju rada biblioteke.
- * Implementira interfejs ApstraktniDomenskiObjekat.
+ * Nasledjuje apstraktnu klasu ApstraktniDomenskiObjekat i implementira njene metode.
  * 
  * Bibliotekar ima ID, ime, prezime, kao i korisnicko ime i lozinku pomocu kojih se prijavljuje na sistem.
  * 
  * @author Teodora
  *
  */
-public class Bibliotekar implements ApstraktniDomenskiObjekat {
+public class Bibliotekar extends ApstraktniDomenskiObjekat {
     
 	/**
 	 * ID bibliotekara kao int.
@@ -59,11 +59,11 @@ public class Bibliotekar implements ApstraktniDomenskiObjekat {
      * @param lozinka lozinka bibliotekara kao String
      */
     public Bibliotekar(int bibliotekarID, String ime, String prezime, String korisnickoIme, String lozinka) {
-        this.bibliotekarID = bibliotekarID;
-        this.ime = ime;
-        this.prezime = prezime;
-        this.korisnickoIme = korisnickoIme;
-        this.lozinka = lozinka;
+        this.setBibliotekarID(bibliotekarID);
+        this.setIme(ime);
+        this.setPrezime(prezime);
+        this.setKorisnickoIme(korisnickoIme);
+        this.setLozinka(lozinka);
     }
 
     /**
@@ -78,9 +78,16 @@ public class Bibliotekar implements ApstraktniDomenskiObjekat {
     /**
      * Postavlja ID bibliotekara na unetu vrednost.
      * 
+     * Uneti ID ne sme biti manji od 0.
+     * 
      * @param bibliotekarID ID bibliotekara kao int
+     * 
+     * @throws java.lang.IllegalArgumentException ako je uneti ID manji od 0
      */
     public void setBibliotekarID(int bibliotekarID) {
+    	if (bibliotekarID < 0)
+			throw new IllegalArgumentException("ID ne sme da bude manji od 0.");
+    	
         this.bibliotekarID = bibliotekarID;
     }
 
@@ -132,9 +139,18 @@ public class Bibliotekar implements ApstraktniDomenskiObjekat {
     /**
      * Postavlja korisnicko ime bibliotekara na unetu vrednost.
      * 
+     * Uneto korisnicko ime ne sme da bude null niti prazan String.
+     * 
      * @param korisnickoIme korisnicko ime bibliotekara kao String
+     * 
+     * @throws java.lang.NullPointerException ako je uneto korisnicko ime null
+	 * @throws java.lang.IllegalArgumentException ako je uneto korisnicko ime prazan String
      */
     public void setKorisnickoIme(String korisnickoIme) {
+    	if (korisnickoIme == null) 
+			throw new NullPointerException("Korisnicko ime ne sme biti null.");
+		if (korisnickoIme.isEmpty())
+			throw new IllegalArgumentException("Korisnicko ime ne sme biti prazno.");
         this.korisnickoIme = korisnickoIme;
     }
 

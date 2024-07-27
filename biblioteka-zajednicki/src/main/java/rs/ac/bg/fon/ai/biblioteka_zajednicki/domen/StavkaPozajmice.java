@@ -9,14 +9,14 @@ import java.util.Objects;
 
 /**
  * Predstavlja jednu stavku pozajmice. Jedna stavka obuhvata jednu knjigu koja je pozajmljena.
- * Implementira interfejs ApstraktniDomenskiObjekat.
+ * Nasledjuje apstraktnu klasu ApstraktniDomenskiObjekat i implementira njene metode.
  * 
  * Stavka pozajmice ime svoj ID, pozajmicu kojoj pripada, datum do kojeg treba vratiti knjigu i knjigu koja se pozajmljuje.
  * 
  * @author Teodora
  *
  */
-public class StavkaPozajmice implements ApstraktniDomenskiObjekat {
+public class StavkaPozajmice extends ApstraktniDomenskiObjekat {
     
 	/**
 	 * Pozajmica kojoj pripada stavka kao objekat klase Pozajmica.
@@ -55,10 +55,10 @@ public class StavkaPozajmice implements ApstraktniDomenskiObjekat {
      * @param knjiga knjiga koja se pozajmljuje kao objekat klase Knjiga
      */
     public StavkaPozajmice(Pozajmica pozajmica, int stavkaID, Date datumDo, Knjiga knjiga) {
-        this.pozajmica = pozajmica;
-        this.stavkaID = stavkaID;
-        this.datumDo = datumDo;
-        this.knjiga = knjiga;
+        this.setPozajmica(pozajmica);
+        this.setStavkaID(stavkaID);
+        this.setDatumDo(datumDo);
+        this.setKnjiga(knjiga);
     }
 
     /**

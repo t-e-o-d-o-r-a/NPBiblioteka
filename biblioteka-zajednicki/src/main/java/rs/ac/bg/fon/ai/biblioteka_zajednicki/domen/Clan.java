@@ -7,14 +7,14 @@ import java.util.Objects;
 
 /**
  * Predstavlja clana koji se uclanio u biblioteku.
- * Implementira interfejs ApstraktniDomenskiObjekat.
+ * Nasledjuje apstraktnu klasu ApstraktniDomenskiObjekat i implementira njene metode.
  * 
  * Clan ima svoj ID, ime, prezime i broj telefona.
  * 
  * @author Teodora
  *
  */
-public class Clan implements ApstraktniDomenskiObjekat {
+public class Clan extends ApstraktniDomenskiObjekat {
     
 	/**
 	 * ID clana kao int.
@@ -53,10 +53,10 @@ public class Clan implements ApstraktniDomenskiObjekat {
      * @param brojTelefona broj telefona clana kao String
      */
     public Clan(int clanID, String ime, String prezime, String brojTelefona) {
-        this.clanID = clanID;
-        this.ime = ime;
-        this.prezime = prezime;
-        this.brojTelefona = brojTelefona;
+        this.setClanID(clanID);
+        this.setIme(ime);
+        this.setPrezime(prezime);
+        this.setBrojTelefona(brojTelefona);
     }
 
     /**
@@ -71,9 +71,16 @@ public class Clan implements ApstraktniDomenskiObjekat {
     /**
      * Postavlja ID clana na unetu vrednost.
      * 
+     * Uneti ID ne sme biti manji od 0.
+     * 
      * @param clanID ID clana kao int
+     * 
+     * @throws java.lang.IllegalArgumentException ako je uneti ID manji od 0
      */
     public void setClanID(int clanID) {
+    	if (clanID < 0)
+			throw new IllegalArgumentException("ID ne sme da bude manji od 0.");
+    	
         this.clanID = clanID;
     }
 
@@ -89,9 +96,19 @@ public class Clan implements ApstraktniDomenskiObjekat {
     /**
      * Postavlja ime clana na unetu vrednost.
      * 
+     * Uneto ime ne sme da bude null niti prazan String.
+     * 
      * @param ime ime clana kao String
+     * 
+     * @throws java.lang.NullPointerException ako je uneto ime null
+	 * @throws java.lang.IllegalArgumentException ako je uneto ime prazan String
      */
     public void setIme(String ime) {
+    	if (ime == null) 
+			throw new NullPointerException("Ime ne sme biti null.");
+		if (ime.isEmpty())
+			throw new IllegalArgumentException("Ime ne sme biti prazno.");
+    	
         this.ime = ime;
     }
 
@@ -107,9 +124,19 @@ public class Clan implements ApstraktniDomenskiObjekat {
     /**
      * Postavlja prezime clana na unetu vrednost.
      * 
+     * Uneto prezime ne sme da bude null niti prazan String.
+     * 
      * @param prezime prezime clana kao String
+     * 
+     * @throws java.lang.NullPointerException ako je uneto prezime null
+	 * @throws java.lang.IllegalArgumentException ako je uneto prezime prazan String
      */
     public void setPrezime(String prezime) {
+    	if (prezime == null) 
+			throw new NullPointerException("Prezime ne sme biti null.");
+		if (prezime.isEmpty())
+			throw new IllegalArgumentException("Prezime ne sme biti prazno.");
+    	
         this.prezime = prezime;
     }
 
@@ -125,9 +152,16 @@ public class Clan implements ApstraktniDomenskiObjekat {
     /**
      * Postavlja broj telefona clana na unetu vrednost.
      * 
+     * Broj telefona ne sme da ima vise od 10 karaktera.
+     * 
      * @param brojTelefona broj telefona clana kao String
+     * 
+     * @throws java.lang.IllegalArgumentException ako je uneti broj telefona duzi od 10 karaktera
      */
     public void setBrojTelefona(String brojTelefona) {
+    	if (brojTelefona.length() > 10)
+			throw new IllegalArgumentException("Broj telefona ne sme da bude duzi od 10 cifara.");
+    	
         this.brojTelefona = brojTelefona;
     }
 

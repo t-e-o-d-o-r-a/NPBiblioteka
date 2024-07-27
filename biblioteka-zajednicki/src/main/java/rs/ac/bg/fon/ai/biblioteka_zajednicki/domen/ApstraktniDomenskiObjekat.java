@@ -5,18 +5,18 @@ import java.sql.ResultSet;
 import java.util.List;
 
 /**
- * Interfejs kojeg implementiraju sve domenske klase.
+ * Apstraktna klasa koju nasledjuju sve domenske klase.
  * 
  * @author Teodora
  */
-public interface ApstraktniDomenskiObjekat extends Serializable{
+public abstract class ApstraktniDomenskiObjekat implements Serializable{
     
 	/**
 	 * Vraca naziv tabele u bazi kojoj odgovara klasa. 
 	 * 
 	 * @return naziv tabele kao String
 	 */
-    public String vratiNazivTabele();
+    public abstract String vratiNazivTabele();
     
     /**
      * Vraca listu objekata odgovarajuce klase na osnovu prosledjenog ResultSet-a.
@@ -25,21 +25,21 @@ public interface ApstraktniDomenskiObjekat extends Serializable{
      * @return lista objekata odgovarajuce klase ili prazna lista ukoliko objekti nisu pronadjeni
      * @throws java.lang.Exception ako dodje do greske prilikom ucitavanja objekata iz ResultSet-a 
      */
-    public List<ApstraktniDomenskiObjekat> vratiListu(ResultSet rs) throws Exception;
+    public abstract List<ApstraktniDomenskiObjekat> vratiListu(ResultSet rs) throws Exception;
     
     /**
      * Vraca nazive kolona kao jedan String koji ce se koristiti prilikom kreiranja upita za ubacivanje odgovarajuceg objekta u bazu.
      *  
      * @return naziv kolona za ubacivanje kao String
      */
-    public String vratiKoloneZaUbacivanje();
+    public abstract String vratiKoloneZaUbacivanje();
     
     /**
      * Vraca vrednosti atributa objekta kao jedan String koji ce se koristiti prilikom kreiranja upita za ubacivanje tog objekta u bazu.
      *  
      * @return vrednosti atributa za ubacivanje kao String
      */
-    public String vratiVrednostiZaUbacivanje();
+    public abstract String vratiVrednostiZaUbacivanje();
     
     /**
      * Vraca naziv kolone primarnog kljuca i vrednost primarnog kljuca odvojene znakom jednakosti kao jedan String koji ce se koristiti prilikom 
@@ -47,7 +47,7 @@ public interface ApstraktniDomenskiObjekat extends Serializable{
      * 
      * @return naziv kolone i vrednost primarnog kljuca kao String
      */
-    public String vratiPrimarniKljuc();
+    public abstract String vratiPrimarniKljuc();
     
     /**
      * Vraca objekat odgovarajuce klase na osnovu prosledjenog ResultSet-a.
@@ -56,7 +56,7 @@ public interface ApstraktniDomenskiObjekat extends Serializable{
      * @return objekat odgovarajuce klase ili null ukoliko objekat nije pronadjen
      * @throws java.lang.Exception ako dodje do greske prilikom ucitavanja objekta iz ResultSet-a  
      */
-    public ApstraktniDomenskiObjekat vratiObjekatIzRS(ResultSet rs) throws Exception;
+    public abstract ApstraktniDomenskiObjekat vratiObjekatIzRS(ResultSet rs) throws Exception;
     
     /**
      * Vraca jedan String koji predstavlja nazive kolona u bazi i vrednosti koje se u njih upisuju radi izmene odvojene znakom jednakosti.
@@ -64,7 +64,7 @@ public interface ApstraktniDomenskiObjekat extends Serializable{
      * 
      * @return String koji predstavlja nazive kolona i vrednosti za izmenu
      */
-    public String vratiVrednostiZaIzmenu();
+    public abstract String vratiVrednostiZaIzmenu();
     
     /**
      * Za odgovarajucu domensku klasu vraca uslov po kojem se pretrazuju njeni objekti u bazi.
@@ -72,7 +72,7 @@ public interface ApstraktniDomenskiObjekat extends Serializable{
      * @param obj objekat odgovarajuce domenske klase koji kao atribute ima vrednosti koje se koriste kao parametri pretrage
      * @return String koji predstavlja uslov za filtriranje
      */
-    public String vratiUslovZaFiltriranje(ApstraktniDomenskiObjekat obj);
+    public abstract String vratiUslovZaFiltriranje(ApstraktniDomenskiObjekat obj);
     
     /**
      * Vraca String koji se koristi u SQL upitima za join-ovanje tabela. Koristi se ukoliko je tabela objeta odgovarajuce domenske klase
@@ -80,13 +80,13 @@ public interface ApstraktniDomenskiObjekat extends Serializable{
      * 
      * @return JOIN deo SQL upita kao String
      */
-    public String join();
+    public abstract String join();
     
     /**
      * Postavlja id objekta odgovarajuce domenske klase na prosledjenu vrednost. 
      * 
      * @param id nova vrednost id-ja objekta koja se postavlja
      */
-    public void postaviId(int id);
+    public abstract void postaviId(int id);
     
 }

@@ -7,14 +7,14 @@ import java.util.Objects;
 
 /**
  * Predstavlja autora knjige.
- * Implementira interfejs ApstraktniDomenskiObjekat.
+ * Nasledjuje apstraktnu klasu ApstraktniDomenskiObjekat i implementira njene metode.
  * 
  * Autor ima ime, prezime i svoj ID.
  * 
  * @author Teodora
  *
  */
-public class Autor implements ApstraktniDomenskiObjekat {
+public class Autor extends ApstraktniDomenskiObjekat {
     
 	/**
 	 * ID autora kao int.
@@ -47,9 +47,9 @@ public class Autor implements ApstraktniDomenskiObjekat {
      * @param prezime prezime autora kao String
      */
     public Autor(int autorID, String ime, String prezime) {
-        this.autorID = autorID;
-        this.ime = ime;
-        this.prezime = prezime;
+        this.setAutorID(autorID);
+        this.setIme(ime);
+        this.setPrezime(prezime);
     }
 
     /**
@@ -64,9 +64,19 @@ public class Autor implements ApstraktniDomenskiObjekat {
     /**
      * Postavlja prezime autora na unetu vrednost.
      * 
+     * Uneto prezime ne sme da bude null niti prazan String.
+     * 
      * @param prezime prezime autora kao String
+     * 
+     * @throws java.lang.NullPointerException ako je uneto prezime null
+	 * @throws java.lang.IllegalArgumentException ako je uneto prezime prazan String
      */
     public void setPrezime(String prezime) {
+    	if (prezime == null) 
+			throw new NullPointerException("Prezime ne sme biti null.");
+		if (prezime.isEmpty())
+			throw new IllegalArgumentException("Prezime ne sme biti prazno.");
+    	
         this.prezime = prezime;
     }
 
@@ -81,10 +91,17 @@ public class Autor implements ApstraktniDomenskiObjekat {
 
     /**
      * Postavlja ID autora na unetu vrednost.
+     * 
+     * Uneti ID ne sme biti manji od 0.
      *  
      * @param autorID ID autora kao int
+     * 
+     * @throws java.lang.IllegalArgumentException ako je uneti ID manji od 0
      */
     public void setAutorID(int autorID) {
+    	if (autorID < 0)
+			throw new IllegalArgumentException("ID ne sme da bude manji od 0.");
+    	
         this.autorID = autorID;
     }
 
@@ -100,9 +117,19 @@ public class Autor implements ApstraktniDomenskiObjekat {
     /**
      * Postavlja ime autora na unetu vrednost.
      * 
+     * Uneto ime ne sme da bude null niti prazan String.
+     * 
      * @param ime ime autora kao String
+     * 
+     * @throws java.lang.NullPointerException ako je uneto ime null
+	 * @throws java.lang.IllegalArgumentException ako je uneto ime prazan String
      */
     public void setIme(String ime) {
+    	if (ime == null) 
+			throw new NullPointerException("Ime ne sme biti null.");
+		if (ime.isEmpty())
+			throw new IllegalArgumentException("Ime ne sme biti prazno.");
+    	
         this.ime = ime;
     }
 

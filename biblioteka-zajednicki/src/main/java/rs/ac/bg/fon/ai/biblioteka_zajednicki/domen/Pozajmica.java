@@ -9,7 +9,7 @@ import java.util.Objects;
 
 /**
  * Predstavlja pozajmicu u okviru koje clan u nekom trenutku pozajmljuje jednu ili vise knjiga iz biblioteke. Pozajmicu belezi bibliotekar.
- * Implementira interfejs ApstraktniDomenskiObjekat.
+ * Nasledjuje apstraktnu klasu ApstraktniDomenskiObjekat i implementira njene metode.
  * 
  * Pozajmica ima svoj ID, datum kada je kreirana, clana koji pozajmljuje, bibliotekara koji je belezi, listu stavki gde svaka stavka odgovara jednoj
  * pozajmljenoj knjizi i napomenu.
@@ -17,7 +17,7 @@ import java.util.Objects;
  * @author Teodora
  *
  */
-public class Pozajmica implements ApstraktniDomenskiObjekat {
+public class Pozajmica extends ApstraktniDomenskiObjekat {
     
 	/**
 	 * ID pozajmice kao int.
@@ -69,12 +69,12 @@ public class Pozajmica implements ApstraktniDomenskiObjekat {
      * @param napomena napomena koja ide uz pozajmicu kao String
      */
     public Pozajmica(int pozajmicaID, Date datum, Clan clan, Bibliotekar bibliotekar, List<StavkaPozajmice> stavke, String napomena) {
-        this.pozajmicaID = pozajmicaID;
-        this.datum = datum;
-        this.clan = clan;
-        this.bibliotekar = bibliotekar;
-        this.stavke = stavke;
-        this.napomena = napomena;
+        this.setPozajmicaID(pozajmicaID);
+        this.setDatum(datum);
+        this.setClan(clan);
+        this.setBibliotekar(bibliotekar);
+        this.setStavke(stavke);
+        this.setNapomena(napomena);
     }
 
     /**
@@ -107,9 +107,16 @@ public class Pozajmica implements ApstraktniDomenskiObjekat {
     /**
      * Postavlja ID pozajmice na unetu vrednost.
      * 
+     * Uneti ID ne sme biti manji od 0.
+     * 
      * @param pozajmicaID ID pozajmice kao int
+     * 
+     * @throws java.lang.IllegalArgumentException ako je uneti ID manji od 0
      */
     public void setPozajmicaID(int pozajmicaID) {
+    	if (pozajmicaID < 0)
+			throw new IllegalArgumentException("ID ne sme da bude manji od 0.");
+    	
         this.pozajmicaID = pozajmicaID;
     }
 

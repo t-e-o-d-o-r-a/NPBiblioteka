@@ -1,20 +1,21 @@
 package rs.ac.bg.fon.ai.biblioteka_zajednicki.domen;
 
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /**
  * Predstavlja knjigu koja je evidentirana u biblioteci.
- * Implementira interfejs ApstraktniDomenskiObjekat.
+ * Nasledjuje apstraktnu klasu ApstraktniDomenskiObjekat i implementira njene metode.
  * 
  * Knjiga ima svoj ID, naslov, broj primeraka, godinu izdanja, autora, izdavaca i format.
  * 
  * @author Teodora
  *
  */
-public class Knjiga implements ApstraktniDomenskiObjekat {
+public class Knjiga extends ApstraktniDomenskiObjekat {
     
 	/**
 	 * ID knjige kao int.
@@ -71,13 +72,13 @@ public class Knjiga implements ApstraktniDomenskiObjekat {
      * @param format format knjige kao enum vrednost Format
      */
     public Knjiga(int knjigaID, String naslov, int brojPrimeraka, int godinaIzdanja, Autor autor, Izdavac izdavac, Format format) {
-        this.knjigaID = knjigaID;
-        this.naslov = naslov;
-        this.brojPrimeraka = brojPrimeraka;
-        this.godinaIzdanja = godinaIzdanja;
-        this.autor = autor;
-        this.izdavac = izdavac;
-        this.format = format;
+        this.setKnjigaID(knjigaID);
+        this.setNaslov(naslov);
+        this.setBrojPrimeraka(brojPrimeraka);
+        this.setGodinaIzdanja(godinaIzdanja);
+        this.setAutor(autor);
+        this.setIzdavac(izdavac);
+        this.setFormat(format);
     }
 
     /**
@@ -110,9 +111,16 @@ public class Knjiga implements ApstraktniDomenskiObjekat {
     /**
      * Postavlja ID knjige na unetu vrednost.
      * 
+     * Uneti ID ne sme biti manji od 0.
+     * 
      * @param knjigaID ID knjige kao int
+     * 
+     * @throws java.lang.IllegalArgumentException ako je uneti ID manji od 0
      */
     public void setKnjigaID(int knjigaID) {
+    	if (knjigaID < 0)
+			throw new IllegalArgumentException("ID ne sme da bude manji od 0.");
+    	
         this.knjigaID = knjigaID;
     }
 
@@ -128,9 +136,16 @@ public class Knjiga implements ApstraktniDomenskiObjekat {
     /**
      * Postavlja naslov knjige na unetu vrednost.
      * 
+     * Uneti naslov ne sme da bude null.
+     * 
      * @param naslov naslov knjige kao String
+     * 
+     * @throws java.lang.NullPointerException ako je uneti naslov null
      */
     public void setNaslov(String naslov) {
+    	if (naslov == null) 
+			throw new NullPointerException("Naslov ne sme biti null.");
+    	
         this.naslov = naslov;
     }
 
@@ -146,9 +161,16 @@ public class Knjiga implements ApstraktniDomenskiObjekat {
 	/**
 	 * Postavlja raspoloziv broj primeraka knjige na unetu vrednost.
 	 * 
+	 * Uneti broj primeraka ne sme da bude manji od 0.
+	 * 
 	 * @param brojPrimeraka raspoloziv broj primeraka knjige kao int
+	 * 
+	 * @throws java.lang.IllegalArgumentException ako je uneti broj primeraka manji od 0
 	 */
     public void setBrojPrimeraka(int brojPrimeraka) {
+    	if (brojPrimeraka < 0)
+			throw new IllegalArgumentException("Broj primeraka ne sme biti manji od 0.");
+    	
         this.brojPrimeraka = brojPrimeraka;
     }
 
@@ -164,9 +186,18 @@ public class Knjiga implements ApstraktniDomenskiObjekat {
     /**
      * Postavlja godinu izdanja knjige na unetu vrednost.
      * 
+     * Uneta godina ne sme da bude negativna niti veca od tekuce godine.
+     * 
      * @param godinaIzdanja godina izdanja knjige kao int
+     * 
+     * @throws java.lang.IllegalArgumentException ako je uneta godina negativna ili veca od tekuce godine
      */
     public void setGodinaIzdanja(int godinaIzdanja) {
+    	int trenutnaGodina = LocalDate.now().getYear();
+    	if (godinaIzdanja < 0 || godinaIzdanja > trenutnaGodina) {
+            throw new IllegalArgumentException("Godina izdanja mora biti između 0 i " + trenutnaGodina);
+        }
+    	
         this.godinaIzdanja = godinaIzdanja;
     }
 

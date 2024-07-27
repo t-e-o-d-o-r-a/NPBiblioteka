@@ -7,14 +7,14 @@ import java.util.Objects;
 
 /**
  * Predstavlja izdavaca knjige.
- * Implementira interfejs ApstraktniDomenskiObjekat.
+ * Nasledjuje apstraktnu klasu ApstraktniDomenskiObjekat i implementira njene metode.
  * 
  * Izdavac ima svoj ID i naziv.
  * 
  * @author Teodora
  *
  */
-public class Izdavac implements ApstraktniDomenskiObjekat {
+public class Izdavac extends ApstraktniDomenskiObjekat {
     
 	/**
 	 * ID izdavaca kao int.
@@ -41,8 +41,8 @@ public class Izdavac implements ApstraktniDomenskiObjekat {
      * @param naziv naziv izdavaca kao String
      */
     public Izdavac(int izdavacID, String naziv) {
-        this.izdavacID = izdavacID;
-        this.naziv = naziv;
+        this.setIzdavacID(izdavacID);
+        this.setNaziv(naziv);
     }
 
     /**
@@ -57,9 +57,19 @@ public class Izdavac implements ApstraktniDomenskiObjekat {
     /**
      * Postavlja naziv izdavaca na unetu vrednost.
      * 
+     * Uneti naziv ne sme da bude null niti prazan String.
+     * 
      * @param naziv naziv izdavaca kao String
+     * 
+     * @throws java.lang.NullPointerException ako je uneti naziv null
+	 * @throws java.lang.IllegalArgumentException ako je uneti naziv prazan String
      */
     public void setNaziv(String naziv) {
+    	if (naziv == null) 
+			throw new NullPointerException("Naziv ne sme biti null.");
+		if (naziv.isEmpty())
+			throw new IllegalArgumentException("Naziv ne sme biti prazan.");
+    	
         this.naziv = naziv;
     }
 
@@ -75,9 +85,16 @@ public class Izdavac implements ApstraktniDomenskiObjekat {
     /**
      * Postavlja ID izdavaca na unetu vrednost.
      * 
+     * Uneti ID ne sme biti manji od 0.
+     * 
      * @param izdavacID ID izdavaca kao int
+     * 
+     * @throws java.lang.IllegalArgumentException ako je uneti ID manji od 0
      */
     public void setIzdavacID(int izdavacID) {
+    	if (izdavacID < 0)
+			throw new IllegalArgumentException("ID ne sme da bude manji od 0.");
+    	
         this.izdavacID = izdavacID;
     }
 
