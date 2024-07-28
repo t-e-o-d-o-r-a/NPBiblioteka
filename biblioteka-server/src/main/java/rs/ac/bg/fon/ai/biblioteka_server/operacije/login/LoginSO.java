@@ -7,6 +7,7 @@ import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
 /**
  * Sistemska operacija koja prijavljuje bibliotekara na sistem.
  * Proverava da li dati bibliotekar postoji registrovan u bazi podataka.
+ * Nasledjuje apstraktnu klasu ApstraktnaGenerickaOperacija i implementira njene apstraktne metode.
  * 
  * @author Teodora
  *

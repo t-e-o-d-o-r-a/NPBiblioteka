@@ -9,6 +9,7 @@ import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
 /**
  * Sistemska operacija koja kreira novu pozajmicu i njene stavke u bazi.
  * Za svaku knjigu u okviru pozajmice se smanjuje broj raspolozivih primeraka.
+ * Nasledjuje apstraktnu klasu ApstraktnaGenerickaOperacija i implementira njene apstraktne metode.
  * 
  * @author Teodora
  *

@@ -9,6 +9,7 @@ import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
 /**
  * Sistemska operacija koja vrsi izmenu odredjene pozajmice i njenih stavki u bazi.
  * Za svaku vracenu knjigu se povecava broj raspolozivih primeraka u bazi.
+ * Nasledjuje apstraktnu klasu ApstraktnaGenerickaOperacija i implementira njene apstraktne metode.
  * 
  * @author Teodora
  *

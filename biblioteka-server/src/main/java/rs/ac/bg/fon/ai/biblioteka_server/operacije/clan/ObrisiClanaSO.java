@@ -5,6 +5,7 @@ import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
 
 /**
  * Sistemska operacija koja brise odredjenog clana iz baze.
+ * Nasledjuje apstraktnu klasu ApstraktnaGenerickaOperacija i implementira njene apstraktne metode.
  * 
  * @author Teodora
  *

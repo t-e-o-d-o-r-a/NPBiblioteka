@@ -6,6 +6,7 @@ import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
 
 /**
  * Sistemska operacija koja pretrazuje knjige u bazi po odredjenim parametrima pretrage.
+ * Nasledjuje apstraktnu klasu ApstraktnaGenerickaOperacija i implementira njene apstraktne metode.
  * 
  * @author Teodora
  *
