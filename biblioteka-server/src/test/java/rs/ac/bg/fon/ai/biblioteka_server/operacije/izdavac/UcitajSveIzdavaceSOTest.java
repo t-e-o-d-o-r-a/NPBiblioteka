@@ -92,12 +92,5 @@ class UcitajSveIzdavaceSOTest {
         assertNotNull(operacija);
 	}
 
-	@Test
-	void testGetLista() {
-		List<Izdavac> ocekivanaLista = new ArrayList<>();
-        operacija.lista = ocekivanaLista;
-
-        assertEquals(ocekivanaLista, operacija.getLista());
-	}
 
 }

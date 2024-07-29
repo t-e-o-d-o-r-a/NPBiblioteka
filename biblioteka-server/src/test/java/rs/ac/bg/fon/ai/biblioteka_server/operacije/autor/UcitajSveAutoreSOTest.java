@@ -92,12 +92,4 @@ class UcitajSveAutoreSOTest {
         verify(brokerMock);
     }
 
-	@Test
-	void testGetLista() {
-		List<Autor> ocekivanaLista = new ArrayList<>();
-        operacija.lista = ocekivanaLista;
-        
-        assertEquals(ocekivanaLista, operacija.getLista());
-	}
-
 }

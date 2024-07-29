@@ -17,7 +17,7 @@ public class UcitajSveIzdavaceSO extends ApstraktnaGenerickaOperacija {
 	 * Lista elemenata klase Izdavac. Bice popunjena svim izdavacima koji se ucitaju iz baze.
 	 * Ukoliko nema izdavaca, lista ostaje prazna.
 	 */
-    List<Izdavac> lista;
+    private List<Izdavac> lista;
     
     /**
      * Konstruktor koji inicijalizuje instancu operacije bez postavljanja specificne implementacije

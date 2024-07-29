@@ -17,7 +17,7 @@ public class UcitajSveAutoreSO extends ApstraktnaGenerickaOperacija {
 	 * Lista elemenata klase Autor. Bice popunjena svim autorima koji se ucitaju iz baze.
 	 * Ukoliko nema autora, lista ostaje prazna.
 	 */
-    List<Autor> lista;
+    private List<Autor> lista;
     
     /**
      * Konstruktor koji inicijalizuje instancu operacije bez postavljanja specificne implementacije
