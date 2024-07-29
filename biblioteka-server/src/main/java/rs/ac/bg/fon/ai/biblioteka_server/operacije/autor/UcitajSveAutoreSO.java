@@ -3,6 +3,7 @@ package rs.ac.bg.fon.ai.biblioteka_server.operacije.autor;
 import rs.ac.bg.fon.ai.biblioteka_zajednicki.domen.Autor;
 import java.util.List;
 import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
+import rs.ac.bg.fon.ai.biblioteka_server.repository.Repository;
 
 /**
  * Sistemska operacija koja vraca sve autore koji postoje u bazi podataka.
@@ -17,6 +18,23 @@ public class UcitajSveAutoreSO extends ApstraktnaGenerickaOperacija {
 	 * Ukoliko nema autora, lista ostaje prazna.
 	 */
     List<Autor> lista;
+    
+    /**
+     * Konstruktor koji inicijalizuje instancu operacije bez postavljanja specificne implementacije
+     * brokera. Koristi default implementaciju iz klase {@link ApstraktnaGenerickaOperacija}.
+     */
+    public UcitajSveAutoreSO() {
+        super();
+    }
+    
+    /**
+     * Konstruktor koji omogucava postavljanje specificne implementacije brokera.
+     * 
+     * @param broker Instanca repozitorijuma koji se koristi za pristup bazi podataka.
+     */
+    public UcitajSveAutoreSO(Repository broker) {
+        super(broker);
+    }
 
     /**
      * Metoda koja proverava da li je prosledjeni objekat instanca klase Autor.
