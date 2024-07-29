@@ -3,6 +3,7 @@ package rs.ac.bg.fon.ai.biblioteka_server.operacije.clan;
 import rs.ac.bg.fon.ai.biblioteka_zajednicki.domen.Clan;
 import java.util.List;
 import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
+import rs.ac.bg.fon.ai.biblioteka_server.repository.Repository;
 
 /**
  * Sistemska operacija koja vraca sve clanove koji postoje u bazi podataka.
@@ -17,6 +18,23 @@ public class UcitajSveClanoveSO extends ApstraktnaGenerickaOperacija {
 	 * Ukoliko nema clanova, lista ostaje prazna.
 	 */
     List<Clan> lista;
+    
+    /**
+     * Konstruktor koji inicijalizuje instancu operacije bez postavljanja specificne implementacije
+     * brokera. Koristi default implementaciju iz klase {@link ApstraktnaGenerickaOperacija}.
+     */
+    public UcitajSveClanoveSO() {
+        super();
+    }
+    
+    /**
+     * Konstruktor koji omogucava postavljanje specificne implementacije brokera.
+     * 
+     * @param broker Instanca repozitorijuma koji se koristi za pristup bazi podataka.
+     */
+    public UcitajSveClanoveSO(Repository broker) {
+        super(broker);
+    }
 
     /**
      * Vraca listu clanova koji su ucitani iz baze ili praznu listu ako nema clanova.
