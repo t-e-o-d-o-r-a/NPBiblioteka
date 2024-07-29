@@ -3,6 +3,7 @@ package rs.ac.bg.fon.ai.biblioteka_server.operacije.izdavac;
 import rs.ac.bg.fon.ai.biblioteka_zajednicki.domen.Izdavac;
 import java.util.List;
 import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
+import rs.ac.bg.fon.ai.biblioteka_server.repository.Repository;
 
 /**
  * Sistemska operacija koja vraca sve izdavace koji postoje u bazi podataka.
@@ -17,6 +18,23 @@ public class UcitajSveIzdavaceSO extends ApstraktnaGenerickaOperacija {
 	 * Ukoliko nema izdavaca, lista ostaje prazna.
 	 */
     List<Izdavac> lista;
+    
+    /**
+     * Konstruktor koji inicijalizuje instancu operacije bez postavljanja specificne implementacije
+     * brokera. Koristi default implementaciju iz klase {@link ApstraktnaGenerickaOperacija}.
+     */
+    public UcitajSveIzdavaceSO() {
+        super();
+    }
+    
+    /**
+     * Konstruktor koji omogucava postavljanje specificne implementacije brokera.
+     * 
+     * @param broker Instanca repozitorijuma koji se koristi za pristup bazi podataka.
+     */
+    public UcitajSveIzdavaceSO(Repository broker) {
+        super(broker);
+    }
 
     /**
      * Metoda koja proverava da li je prosledjeni objekat instanca klase Izdavac.
