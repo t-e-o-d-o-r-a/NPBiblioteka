@@ -2,6 +2,7 @@ package rs.ac.bg.fon.ai.biblioteka_server.operacije.clan;
 
 import rs.ac.bg.fon.ai.biblioteka_zajednicki.domen.Clan;
 import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
+import rs.ac.bg.fon.ai.biblioteka_server.repository.Repository;
 
 /**
  * Sistemska operacija koja ucitava odredjenog clana iz baze podataka.
@@ -17,6 +18,23 @@ public class UcitajClanaSO extends ApstraktnaGenerickaOperacija {
 	 * Ukoliko clan nije pronadjen, ima vrednost null.
 	 */
     private Clan clan;
+    
+    /**
+     * Konstruktor koji inicijalizuje instancu operacije bez postavljanja specificne implementacije
+     * brokera. Koristi default implementaciju iz klase {@link ApstraktnaGenerickaOperacija}.
+     */
+    public UcitajClanaSO() {
+        super();
+    }
+    
+    /**
+     * Konstruktor koji omogucava postavljanje specificne implementacije brokera.
+     * 
+     * @param broker Instanca repozitorijuma koji se koristi za pristup bazi podataka.
+     */
+    public UcitajClanaSO(Repository broker) {
+        super(broker);
+    }
 
     /**
      * Metoda koja proverava da li je prosledjeni objekat instanca klase Clan.

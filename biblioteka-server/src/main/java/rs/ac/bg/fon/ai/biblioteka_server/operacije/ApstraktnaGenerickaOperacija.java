@@ -18,11 +18,20 @@ public abstract class ApstraktnaGenerickaOperacija {
     protected final Repository broker;
 
     /**
-     * Konstruktor koji inicijalizuje broker na instancu klase DBRepositoryGeneric koja sadrzi
+     * Bezparametarski konstruktor koji inicijalizuje broker na instancu klase DBRepositoryGeneric koja sadrzi
      * konkretne metode za rad sa bazom podataka.
      */
     public ApstraktnaGenerickaOperacija() {
-        this.broker = new DBRepositoryGeneric();
+        this(new DBRepositoryGeneric());
+    }
+    
+    /**
+     * Konstruktor koji omogucava postavljanje specificne implementacije brokera.
+     * 
+     * @param broker Instanca repozitorijuma koji se koristi za pristup bazi podataka.
+     */
+    public ApstraktnaGenerickaOperacija(Repository broker) {
+        this.broker = broker;
     }
     
     /**

@@ -232,7 +232,9 @@ public class Pozajmica extends ApstraktniDomenskiObjekat {
 
     @Override
     public String toString() {
-        return "Pozajmica{" + "datum=" + datum + ", clan=" + clan + ", bibliotekar=" + bibliotekar + ", stavke=" + stavke + '}';
+    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String formatiranDatum = sdf.format(datum);
+        return "Pozajmica{" + "datum=" + formatiranDatum + ", clan=" + clan + ", bibliotekar=" + bibliotekar + ", broj stavki=" + (stavke == null ? 0 : stavke.size()) + '}';
     }
 
     @Override
@@ -319,7 +321,9 @@ public class Pozajmica extends ApstraktniDomenskiObjekat {
 
     @Override
     public String vratiVrednostiZaIzmenu() {
-        return "datum='" + datum + "', clan=" + clan.getClanID() + ", bibliotekar=" + bibliotekar.getBibliotekarID() + ", napomena='" + napomena + "'";
+    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String formatiranDatum = sdf.format(this.datum);
+        return "datum='" + formatiranDatum + "', clan=" + clan.getClanID() + ", bibliotekar=" + bibliotekar.getBibliotekarID() + ", napomena='" + napomena + "'";
     }
 
     @Override

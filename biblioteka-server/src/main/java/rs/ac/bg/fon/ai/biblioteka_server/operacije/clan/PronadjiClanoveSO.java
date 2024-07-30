@@ -3,6 +3,7 @@ package rs.ac.bg.fon.ai.biblioteka_server.operacije.clan;
 import rs.ac.bg.fon.ai.biblioteka_zajednicki.domen.Clan;
 import java.util.List;
 import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
+import rs.ac.bg.fon.ai.biblioteka_server.repository.Repository;
 
 /**
  * Sistemska operacija koja pretrazuje clanove u bazi po odredjenim parametrima pretrage.
@@ -18,6 +19,23 @@ public class PronadjiClanoveSO extends ApstraktnaGenerickaOperacija {
 	 * Ukoliko nema clanova koji odgovaraju datim parametrima pretrage, lista ostaje prazna.
 	 */
     private List<Clan> lista;
+    
+    /**
+     * Konstruktor koji inicijalizuje instancu operacije bez postavljanja specificne implementacije
+     * brokera. Koristi default implementaciju iz klase {@link ApstraktnaGenerickaOperacija}.
+     */
+    public PronadjiClanoveSO() {
+        super();
+    }
+    
+    /**
+     * Konstruktor koji omogucava postavljanje specificne implementacije brokera.
+     * 
+     * @param broker Instanca repozitorijuma koji se koristi za pristup bazi podataka.
+     */
+    public PronadjiClanoveSO(Repository broker) {
+        super(broker);
+    }
 
     /**
      * Metoda koja proverava da li je prosledjeni objekat instanca klase Clan.

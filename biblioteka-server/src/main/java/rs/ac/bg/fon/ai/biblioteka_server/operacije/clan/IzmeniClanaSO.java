@@ -2,6 +2,7 @@ package rs.ac.bg.fon.ai.biblioteka_server.operacije.clan;
 
 import rs.ac.bg.fon.ai.biblioteka_zajednicki.domen.Clan;
 import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
+import rs.ac.bg.fon.ai.biblioteka_server.repository.Repository;
 
 /**
  * Sistemska operacija koja vrsi izmenu odredjenog clana u bazi.
@@ -11,6 +12,39 @@ import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
  *
  */
 public class IzmeniClanaSO extends ApstraktnaGenerickaOperacija {
+	
+	/**
+	 * Pokazatelj uspesnosti operacije. Ukoliko je operacija uspesno izvrsena, ima vrednost true, a ukoliko je doslo do greske, ima vrednost false.
+	 * Pocetna vrednost je false.
+	 */
+	private boolean uspesno = false;
+	
+	/**
+	 * Vraca vrednost boolean promenljive upesno.
+	 * Sluzi kao indikator uspesnosti izvrsene operacije.
+	 * 
+	 * @return true ako je operacija uspesno izvrsena, false ukoliko nije
+	 */
+	public boolean isUspesno() {
+		return uspesno;
+	}
+	
+	/**
+     * Konstruktor koji inicijalizuje instancu operacije bez postavljanja specificne implementacije
+     * brokera. Koristi default implementaciju iz klase {@link ApstraktnaGenerickaOperacija}.
+     */
+    public IzmeniClanaSO() {
+        super();
+    }
+    
+    /**
+     * Konstruktor koji omogucava postavljanje specificne implementacije brokera.
+     * 
+     * @param broker Instanca repozitorijuma koji se koristi za pristup bazi podataka.
+     */
+    public IzmeniClanaSO(Repository broker) {
+        super(broker);
+    }
 
 	/**
      * Metoda koja proverava da li je prosledjeni objekat instanca klase Clan.
@@ -35,6 +69,7 @@ public class IzmeniClanaSO extends ApstraktnaGenerickaOperacija {
     @Override
     protected void izvrsiOperaciju(Object objekat, String kljuc) throws Exception {
         broker.promeni((Clan) objekat);
+        uspesno = true;
     }
     
 }

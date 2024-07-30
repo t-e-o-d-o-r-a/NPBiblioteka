@@ -4,6 +4,7 @@ import rs.ac.bg.fon.ai.biblioteka_zajednicki.domen.Pozajmica;
 import rs.ac.bg.fon.ai.biblioteka_zajednicki.domen.StavkaPozajmice;
 import java.util.List;
 import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
+import rs.ac.bg.fon.ai.biblioteka_server.repository.Repository;
 
 /**
  * Sistemska operacija koja ucitava sve pozajmice i njihove stavke za odredjenog clana iz baze podataka.
@@ -19,6 +20,23 @@ public class UcitajPozajmiceClanaSO extends ApstraktnaGenerickaOperacija {
 	 * Ukoliko nema pozajmica, lista ostaje prazna.
 	 */
     List<Pozajmica> pozajmice;
+    
+    /**
+     * Konstruktor koji inicijalizuje instancu operacije bez postavljanja specificne implementacije
+     * brokera. Koristi default implementaciju iz klase {@link ApstraktnaGenerickaOperacija}.
+     */
+    public UcitajPozajmiceClanaSO() {
+        super();
+    }
+    
+    /**
+     * Konstruktor koji omogucava postavljanje specificne implementacije brokera.
+     * 
+     * @param broker Instanca repozitorijuma koji se koristi za pristup bazi podataka.
+     */
+    public UcitajPozajmiceClanaSO(Repository broker) {
+        super(broker);
+    }
 
     /**
      * Metoda koja proverava da li je prosledjeni objekat instanca klase Pozajmica.

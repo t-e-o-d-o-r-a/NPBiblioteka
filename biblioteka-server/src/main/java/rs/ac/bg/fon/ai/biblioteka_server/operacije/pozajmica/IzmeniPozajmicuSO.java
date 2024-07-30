@@ -5,6 +5,7 @@ import rs.ac.bg.fon.ai.biblioteka_zajednicki.domen.Pozajmica;
 import rs.ac.bg.fon.ai.biblioteka_zajednicki.domen.StavkaPozajmice;
 import java.util.List;
 import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
+import rs.ac.bg.fon.ai.biblioteka_server.repository.Repository;
 
 /**
  * Sistemska operacija koja vrsi izmenu odredjene pozajmice i njenih stavki u bazi.
@@ -15,6 +16,39 @@ import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
  *
  */
 public class IzmeniPozajmicuSO extends ApstraktnaGenerickaOperacija {
+	
+	/**
+	 * Pokazatelj uspesnosti operacije. Ukoliko je operacija uspesno izvrsena, ima vrednost true, a ukoliko je doslo do greske, ima vrednost false.
+	 * Pocetna vrednost je false.
+	 */
+	private boolean uspesno = false;
+	
+	/**
+	 * Vraca vrednost boolean promenljive upesno.
+	 * Sluzi kao indikator uspesnosti izvrsene operacije.
+	 * 
+	 * @return true ako je operacija uspesno izvrsena, false ukoliko nije
+	 */
+	public boolean isUspesno() {
+		return uspesno;
+	}
+	
+	/**
+     * Konstruktor koji inicijalizuje instancu operacije bez postavljanja specificne implementacije
+     * brokera. Koristi default implementaciju iz klase {@link ApstraktnaGenerickaOperacija}.
+     */
+    public IzmeniPozajmicuSO() {
+        super();
+    }
+    
+    /**
+     * Konstruktor koji omogucava postavljanje specificne implementacije brokera.
+     * 
+     * @param broker Instanca repozitorijuma koji se koristi za pristup bazi podataka.
+     */
+    public IzmeniPozajmicuSO(Repository broker) {
+        super(broker);
+    }
 
 	/**
      * Metoda koja proverava da li je prosledjeni objekat instanca klase Pozajmica.
@@ -47,6 +81,8 @@ public class IzmeniPozajmicuSO extends ApstraktnaGenerickaOperacija {
             k.setBrojPrimeraka(k.getBrojPrimeraka() + 1);
             broker.promeni((Knjiga) k);
         }
+        
+        uspesno = true;
     }
     
 }
