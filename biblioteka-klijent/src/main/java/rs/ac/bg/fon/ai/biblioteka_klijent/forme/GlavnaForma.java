@@ -2,6 +2,7 @@ package rs.ac.bg.fon.ai.biblioteka_klijent.forme;
 
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class GlavnaForma extends javax.swing.JFrame {
@@ -14,6 +15,7 @@ public class GlavnaForma extends javax.swing.JFrame {
     public GlavnaForma() {
         initComponents();
         setLocationRelativeTo(null);
+        setExtendedState(MAXIMIZED_BOTH);
         lblSlika.setIcon(slicica);
     }
 
@@ -31,6 +33,10 @@ public class GlavnaForma extends javax.swing.JFrame {
         txtBibliotekar = new javax.swing.JTextField();
         lblSlika = new javax.swing.JLabel();
         btnKraj = new javax.swing.JButton();
+        lblCitat = new javax.swing.JLabel();
+        lblAutor = new javax.swing.JLabel();
+        clanoviJSON = new javax.swing.JButton();
+        btnKnjigeJson = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jmiDodajKnjigu = new javax.swing.JMenuItem();
@@ -54,6 +60,10 @@ public class GlavnaForma extends javax.swing.JFrame {
 
         btnKraj.setText("Kraj rada");
         btnKraj.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(193, 59, 58)));
+
+        clanoviJSON.setText("Sacuvaj clanove u JSON fajl");
+
+        btnKnjigeJson.setText("Sacuvaj knjige u JSON fajl");
 
         jMenu2.setText("Knjige");
 
@@ -91,31 +101,48 @@ public class GlavnaForma extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblSlika, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtBibliotekar, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(btnKraj, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblSlika, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCitat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtBibliotekar, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
+                                .addComponent(btnKraj, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnKnjigeJson, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(clanoviJSON, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addGap(66, 66, 66))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtBibliotekar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnKraj, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
+                    .addComponent(btnKraj, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(clanoviJSON))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnKnjigeJson)
+                .addGap(43, 43, 43)
+                .addComponent(lblCitat, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                 .addComponent(lblSlika)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addGap(153, 153, 153))
         );
 
         pack();
@@ -153,9 +180,29 @@ public class GlavnaForma extends javax.swing.JFrame {
         btnKraj.addActionListener(actionListener);
     }
     
+    public void btnClanoviJsonAddActionListener(ActionListener actionListener) {
+        clanoviJSON.addActionListener(actionListener);
+    }
+    
+    public void btnKnjigeJsonAddActionListener(ActionListener actionListener) {
+        btnKnjigeJson.addActionListener(actionListener);
+    }
+
+    public JLabel getLblAutor() {
+        return lblAutor;
+    }
+
+    public JLabel getLblCitat() {
+        return lblCitat;
+    }
+    
+    
+    
 
     // Variables declaration - do not modify                     
+    private javax.swing.JButton btnKnjigeJson;
     private javax.swing.JButton btnKraj;
+    private javax.swing.JButton clanoviJSON;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -168,6 +215,8 @@ public class GlavnaForma extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiPregledClanova;
     private javax.swing.JMenuItem jmiPregledKnjiga;
     private javax.swing.JMenuItem jmiPregledPozajmica;
+    private javax.swing.JLabel lblAutor;
+    private javax.swing.JLabel lblCitat;
     private javax.swing.JLabel lblSlika;
     private javax.swing.JTextField txtBibliotekar;
     // End of variables declaration                   
