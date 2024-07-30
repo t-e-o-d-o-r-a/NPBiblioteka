@@ -2,6 +2,7 @@ package rs.ac.bg.fon.ai.biblioteka_server.operacije.knjiga;
 
 import rs.ac.bg.fon.ai.biblioteka_zajednicki.domen.Knjiga;
 import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
+import rs.ac.bg.fon.ai.biblioteka_server.repository.Repository;
 
 /**
  * Sistemska operacija koja ucitava odredjenu knjigu iz baze podataka.
@@ -16,6 +17,23 @@ public class UcitajKnjiguSO extends ApstraktnaGenerickaOperacija {
 	 * Ukoliko knjiga nije pronadjena, ima vrednost null.
 	 */
     private Knjiga knjiga;
+    
+    /**
+     * Konstruktor koji inicijalizuje instancu operacije bez postavljanja specificne implementacije
+     * brokera. Koristi default implementaciju iz klase {@link ApstraktnaGenerickaOperacija}.
+     */
+    public UcitajKnjiguSO() {
+        super();
+    }
+    
+    /**
+     * Konstruktor koji omogucava postavljanje specificne implementacije brokera.
+     * 
+     * @param broker Instanca repozitorijuma koji se koristi za pristup bazi podataka.
+     */
+    public UcitajKnjiguSO(Repository broker) {
+        super(broker);
+    }
     
     /**
      * Metoda koja proverava da li je prosledjeni objekat instanca klase Knjiga.

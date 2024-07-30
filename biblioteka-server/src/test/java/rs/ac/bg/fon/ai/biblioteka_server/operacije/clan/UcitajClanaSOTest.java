@@ -74,6 +74,22 @@ class UcitajClanaSOTest {
 
         verify(brokerMock);
     }
+    
+    @Test
+    void testIzvrsiOperacijuClanNijePronadjen() throws Exception {
+        Clan clan = new Clan(1, "Pera", "Peric", "123123123");
+
+        expect(brokerMock.pronadji(clan, clan.getClanID())).andReturn(null);
+        replay(brokerMock);
+
+        operacija.izvrsiOperaciju(clan, null);
+
+        Clan rezultat = operacija.getClan();
+
+        assertNull(rezultat);
+
+        verify(brokerMock);
+    }
 
     @Test
     void testIzvrsiOperacijuGreska() throws Exception {

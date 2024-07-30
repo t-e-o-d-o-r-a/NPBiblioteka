@@ -3,6 +3,7 @@ package rs.ac.bg.fon.ai.biblioteka_server.operacije.knjiga;
 import rs.ac.bg.fon.ai.biblioteka_zajednicki.domen.Knjiga;
 import java.util.List;
 import rs.ac.bg.fon.ai.biblioteka_server.operacije.ApstraktnaGenerickaOperacija;
+import rs.ac.bg.fon.ai.biblioteka_server.repository.Repository;
 
 /**
  * Sistemska operacija koja vraca sve knjige koji postoje u bazi podataka.
@@ -17,6 +18,23 @@ public class UcitajSveKnjigeSO extends ApstraktnaGenerickaOperacija {
 	 * Ukoliko nema knjiga, lista ostaje prazna.
 	 */
     List<Knjiga> lista;
+    
+    /**
+     * Konstruktor koji inicijalizuje instancu operacije bez postavljanja specificne implementacije
+     * brokera. Koristi default implementaciju iz klase {@link ApstraktnaGenerickaOperacija}.
+     */
+    public UcitajSveKnjigeSO() {
+        super();
+    }
+    
+    /**
+     * Konstruktor koji omogucava postavljanje specificne implementacije brokera.
+     * 
+     * @param broker Instanca repozitorijuma koji se koristi za pristup bazi podataka.
+     */
+    public UcitajSveKnjigeSO(Repository broker) {
+        super(broker);
+    }
     
     /**
      * Metoda koja proverava da li je prosledjeni objekat instanca klase Knjiga.
