@@ -82,6 +82,7 @@ public class ClanKontroler {
             }
 
             private void sacuvaj() {
+            	System.out.println("Cuvanje...");
                 try {
                     String ime = cf.getTxtIme().getText().trim();
                     String prezime = cf.getTxtPrezime().getText().trim();
@@ -89,9 +90,10 @@ public class ClanKontroler {
                     
                     if (!validacija(ime, prezime, brojTelefona)) return;
                     
-                    Clan c = new Clan(-1, ime, prezime, brojTelefona);
+                    Clan c = new Clan(0, ime, prezime, brojTelefona);
                     
                     //proveriti da li vec postoji taj clan u bazi:
+                    System.out.println("ovde");
                     List<Clan> clanoviIzBaze = Komunikacija.getInstance().vratiClanoveIme(c.getIme());
                     for (Clan cb : clanoviIzBaze) {
                         if (cb.equals(c)) {

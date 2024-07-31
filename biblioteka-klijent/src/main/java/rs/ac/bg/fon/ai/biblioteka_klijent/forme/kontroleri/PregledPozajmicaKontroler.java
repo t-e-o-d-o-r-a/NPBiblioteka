@@ -151,12 +151,18 @@ public class PregledPozajmicaKontroler {
                 int red = ppf.getTblPozajmice().getSelectedRow();
                 Pozajmica p = ((ModelTabelePozajmica) ppf.getTblPozajmice().getModel()).getPozajmicaAt(red);
                 p.setNapomena(ppf.getTxtNapomena().getText().trim());
-                p.setStavke(zaVracanje);
+                
                 
                 try {
                     if (zaVracanje.size() == p.getStavke().size()) {
+                    	System.out.println(zaVracanje);
+                    	System.out.println(p.getStavke());
+                    	p.setStavke(zaVracanje);
                         Komunikacija.getInstance().obrisiPozajmicu(p);
                     } else {
+                    	System.out.println(zaVracanje);
+                    	System.out.println(p.getStavke());
+                    	p.setStavke(zaVracanje);
                         Komunikacija.getInstance().izmeniPozajmicu(p);
                     }
                     

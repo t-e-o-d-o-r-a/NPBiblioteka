@@ -66,7 +66,7 @@ public class KnjigaKontroler {
                     
                     if (!validacija(naslov, godina, br)) return;
                     
-                    Knjiga knjiga = new Knjiga(-1, naslov, br, godina, autor, izdavac, format);
+                    Knjiga knjiga = new Knjiga(0, naslov, br, godina, autor, izdavac, format);
                     
                     // proveriti da li vec postoji u bazi
                     List<Knjiga> knjigeIzBaze = Komunikacija.getInstance().vratiKnjigeNaslovAutor(knjiga);
